@@ -1,0 +1,41 @@
+<html>
+
+<head>
+	<title>VC</title>
+	<script src="cv.js"></script>
+
+	<style>
+		body {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			background: black;
+		}
+
+		#tv {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	</style>
+
+	<script>
+		document.addEventListener( "DOMContentLoaded", function()
+		{
+			let decoder = new VC
+				( {
+					canvas: document.getElementById( "tv" ),
+
+					// Other options go here!
+				} );
+
+		}, false );
+	</script>
+</head>
+
+<body>
+	<canvas width="1280" height="720" id="tv"></canvas>
+</body>
+
+</html>
