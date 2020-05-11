@@ -123,6 +123,11 @@ class VC
 			.catch( console.error );
 	}
 
+	activate()
+	{
+		this.audioCtx.resume();
+	}
+
 	hPhaseToX( hPhase, vPhase, field )
 	{
 		return ( ( hPhase - this.hOffset ) / this.overScan ) * this.width;

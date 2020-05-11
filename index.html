@@ -1,43 +1,46 @@
-<!DOCTYPE html>
 <html>
 
-	<head>
-		<title>VC</title>
-		<style>
-			body {
-				width: 100%;
-				height: 100%;
-				margin: 0;
-				padding: 0;
-				background: black;
-			}
+<head>
+	<title>VC</title>
+	<script src="cv.js"></script>
 
-			#tv {
-				width: 100%;
-				height: 100%;
-				object-fit: contain;
-			}
-		</style>
-		<script type="text/javascript" src="cv.js"></script>
-		<script type="text/javascript">
-			document.addEventListener("DOMContentLoaded", function() {
-				let tv = document.getElementById("tv");
-				let decoder = new VC({
+	<style>
+		body {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			background: black;
+		}
+
+		#tv {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	</style>
+
+	<script>
+		document.addEventListener( "DOMContentLoaded", function()
+		{
+			let tv = document.getElementById( "tv" );
+			let decoder = new VC
+				( {
 					canvas: tv,
+
 					// Other options go here!
-				});
+				} );
 
-				tv.addEventListener('click', function() {
-			  		decoder.audioCtx.resume().then(() => {
-			    		console.log('Playback resumed successfully');
-		    		});
-				});
-			}, false );
-		</script>
-	</head>
+			tv.addEventListener( "click", function() 
+			{
+			  	decoder.activate();
+			} );
+		}, false );
+	</script>
+</head>
 
-	<body>
-		<canvas width="1280" height="720" id="tv"></canvas>
-	</body>
+<body>
+	<canvas width="1280" height="720" id="tv"></canvas>
+</body>
 
 </html>
