@@ -23,13 +23,18 @@
 	<script>
 		document.addEventListener( "DOMContentLoaded", function()
 		{
+			let tv = document.getElementById( "tv" );
 			let decoder = new VC
 				( {
-					canvas: document.getElementById( "tv" ),
+					canvas: tv,
 
 					// Other options go here!
 				} );
 
+			tv.addEventListener( "click", function() 
+			{
+			  	decoder.activate();
+			} );
 		}, false );
 	</script>
 </head>
