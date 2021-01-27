@@ -21,20 +21,19 @@
 	</style>
 
 	<script>
-		document.addEventListener( "DOMContentLoaded", function()
+		document.addEventListener( "DOMContentLoaded", _ =>
 		{
 			let tv = document.getElementById( "tv" );
-			let decoder = new VC
-				( {
-					canvas: tv,
 
+			let decoder = new VC( tv,
+				{
 					// Other options go here!
 				} );
 
-			tv.addEventListener( "click", function() 
-			{
-			  	decoder.activate();
-			} );
+			tv.addEventListener( "click", _ => decoder.activate() );
+
+			decoder.start().catch( console.error );
+
 		}, false );
 	</script>
 </head>
