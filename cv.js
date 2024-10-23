@@ -6,6 +6,7 @@ class VC
 	{
 		const defConfig =
 		{
+			color: true,
 			clearInterval: 50,
 			overScan: 0.82,
 			hOffset: 0.06525,
@@ -61,7 +62,10 @@ class VC
 
 		this.audioInput = this.audioContext.createMediaStreamSource( stream );
 
-		await this.audioContext.audioWorklet.addModule( 'cv-decoder.js' )
+		if( this.config.color )
+			await this.audioContext.audioWorklet.addModule( 'cv-decoder-color.js' )
+		else
+			await this.audioContext.audioWorklet.addModule( 'cv-decoder-bw.js' )
 
 		this.decoder = new AudioWorkletNode( this.audioContext, 'cv-decoder',
 			{
